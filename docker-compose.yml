@@ -1,0 +1,44 @@
+version: '3'
+services:
+  mysql-service:
+    container_name: mysql_container
+    image: mysql:8.3.0
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d/
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - shareNet
+    ports:
+      - 3306:3306
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+  flask-service:
+    container_name: flask_container
+    build: ./onnx_app
+    networks:
+      - shareNet
+    ports:
+      - 5000:5000
+  springboot-service:
+    container_name: springboot_container
+    build: ./springboot_app
+    networks:
+      - shareNet
+    ports:
+      - 8888:8888
+    depends_on:
+      - mysql-service
+  vue-service:
+    container_name: vue_container
+    build: ./vue_app
+    networks:
+      - shareNet
+    ports:
+      - 8080:8080
+    depends_on:
+      - springboot-service
+      - flask-service
+networks:
+  shareNet:
+    driver: bridge

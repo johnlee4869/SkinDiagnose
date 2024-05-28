@@ -1,0 +1,63 @@
+.active {
+    background-color: #5b92e5 !important
+}
+
+nav {
+    background-color: #5b92e5;
+}
+
+nav > div > a > img {
+    width: 40px;
+    height: 40px;
+    margin-left: 100px;
+    margin-right: 5px
+}
+
+nav > div > a > span {
+    font-size: 25px;
+    color: white
+}
+
+.container {
+    margin-top: 90px;
+}
+
+#image_canvas {
+    height: 500px;
+    width: 750px;
+    border: black 2px solid;
+    border-radius: 5px;
+}
+
+iframe {
+    height: 500px;
+    width: 300px;
+    padding: 0;
+}
+
+input[type="file"]::file-selector-button, .file_submit {
+     /* 文字颜色 */
+      color: black;
+      /* 清除背景色 */
+      background: transparent;
+      /* 边框样式、颜色、宽度 */
+      border: 2px solid #5b92e5;
+      /* 给边框添加圆角 */
+      border-radius: 6px;
+      /* 字母转大写 */
+      padding: 12px 24px;
+      text-align: center;
+      display: inline-block;
+      font-size: 18px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+}
+
+input[type="file"]::file-selector-button:hover, .file_submit:hover {
+      background-color: #5b92e5;
+      color: white;
+}

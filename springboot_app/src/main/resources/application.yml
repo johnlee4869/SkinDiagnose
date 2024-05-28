@@ -1,0 +1,27 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: springboot_app
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql-service:3306/SkinDiagnose?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      idle-timeout: 60000
+      max-lifetime: 1800000
+  jpa:
+    database: mysql
+    show-sql: true
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        ddl-auto: update
+        hibernate.format_sql: true
+        hibernate.use_sql_comments: true
+
+

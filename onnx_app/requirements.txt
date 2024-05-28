@@ -1,0 +1,6 @@
+Flask
+numpy
+pillow
+torchvision
+onnx
+onnxruntime
